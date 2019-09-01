@@ -13,7 +13,15 @@ public class PropertiesUtils {
 
     private static final String DEFAULT_CONFIG_ROOT_PATH = "classpath://";
 
-    public static Properties getProperties(String filePath) {
-        
+    /**
+     * 通过 filePath 获取 Properties
+     *
+     * @param filePath
+     * @return
+     */
+    public static Properties getPropertiesByFilePath(String filePath) {
+        // TODO
+
+        return null;
     }
 }
