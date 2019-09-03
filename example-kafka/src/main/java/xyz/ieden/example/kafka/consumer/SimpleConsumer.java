@@ -1,8 +1,11 @@
 package xyz.ieden.example.kafka.consumer;
 
+import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 import xyz.ieden.example.kafka.config.KafkaConsumerConfig;
 
+import java.time.Duration;
+import java.util.Arrays;
 import java.util.Properties;
 
 /**
@@ -23,9 +26,14 @@ public class SimpleConsumer {
 
             // 2. 创建消费者
             kafkaConsumer = new KafkaConsumer<>(props);
+            // 3. 订阅主题
+            kafkaConsumer.subscribe(Arrays.asList("toc_1"));
 
             // 3. 消费信息
             while (true) {
+                // 1000 ms 消费一次
+                ConsumerRecords<String, String> records = kafkaConsumer.poll(Duration.ofMillis(1000));
+
 
             }
         } finally {
